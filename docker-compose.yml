@@ -92,6 +92,10 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
+    links:
+      - prometheus
+      - postgres
+      - redis
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
